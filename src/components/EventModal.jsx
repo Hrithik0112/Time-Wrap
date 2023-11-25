@@ -4,10 +4,13 @@ import GlobalContext from "../context/GlobalContext";
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 
 export default function EventModal() {
-  const { setShowEventModal, daySelected, dispatchCalEvent } = useContext(GlobalContext);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [selectedLabel, setSelectedLabel] = useState(labelsClasses[0]);
+  const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
+    useContext(GlobalContext);
+  const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
+  const [description, setDescription] = useState(selectedEvent ? selectedEvent.description : "");
+  const [selectedLabel, setSelectedLabel] = useState(
+    selectedEvent ? labelsClasses.find((lbl) => lbl === selectedEvent.label) : labelsClasses[0]
+  );
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,9 +19,13 @@ export default function EventModal() {
       description,
       label: selectedLabel,
       day: daySelected.valueOf(),
-      id: Date.now(),
+      id: selectedEvent ? selectedEvent.id : Date.now(),
     };
-    dispatchCalEvent({ type: "push", payload: calendarEvent });
+    if (selectedEvent) {
+      dispatchCalEvent({ type: "update", payload: calendarEvent });
+    } else {
+      dispatchCalEvent({ type: "push", payload: calendarEvent });
+    }
 
     setShowEventModal(false);
   }
@@ -29,6 +36,20 @@ export default function EventModal() {
         <header className="bg-gray-100 px-4 py-2 flex justify-between items-center">
           <span className="material-icons-outlined text-gray-400">drag_handle</span>
           <div>
+            {selectedEvent && (
+              <span
+                onClick={() => {
+                  dispatchCalEvent({
+                    type: "delete",
+                    payload: selectedEvent,
+                  });
+                  setShowEventModal(false);
+                }}
+                className="material-icons-outlined text-gray-400 cursor-pointer"
+              >
+                delete
+              </span>
+            )}
             <button onClick={() => setShowEventModal(false)}>
               <span className="material-icons-outlined text-gray-400">close</span>
             </button>
