@@ -4,7 +4,8 @@ import GlobalContext from "../context/GlobalContext";
 
 function Day({ day, rowIdx }) {
   const [dayEvents, setDayEvents] = useState([]);
-  const { setDaySelected, setShowEventModal, filteredEvents } = useContext(GlobalContext);
+  const { setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent } =
+    useContext(GlobalContext);
 
   useEffect(() => {
     const events = filteredEvents.filter(

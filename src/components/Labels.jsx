@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 
 function Labels() {
-  const { labels } = useContext(GlobalContext);
+  const { labels, updateLabel } = useContext(GlobalContext);
   return (
     <React.Fragment>
       <p className="text-gray-500 font-bold mt-10">Label</p>
