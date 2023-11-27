@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 
-const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
+const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple", "teal"];
 
 export default function EventModal() {
   const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
