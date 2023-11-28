@@ -13,8 +13,8 @@ const GlobalContext = React.createContext({
   savedEvents: [],
   selectedEvent: null,
   setSelectedEvent: () => {},
-  labels: [],
   setLabels: () => {},
+  labels: [],
   updateLabel: () => {},
   filteredEvents: [],
 });

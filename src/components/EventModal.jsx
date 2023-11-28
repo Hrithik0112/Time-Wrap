@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 
-const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple", "teal"];
+const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 
 export default function EventModal() {
   const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
     useContext(GlobalContext);
+
   const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
   const [description, setDescription] = useState(selectedEvent ? selectedEvent.description : "");
   const [selectedLabel, setSelectedLabel] = useState(
@@ -29,7 +30,6 @@ export default function EventModal() {
 
     setShowEventModal(false);
   }
-
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
       <form className="bg-white rounded-lg shadow-2xl w-1/4">
