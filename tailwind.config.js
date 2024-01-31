@@ -11,7 +11,7 @@ module.exports = {
       ...labelsClasses.map((lbl) => `text-${lbl}-400`),
     ],
   },
-  darkMode: false, // or 'media' or 'class'
+  // darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
