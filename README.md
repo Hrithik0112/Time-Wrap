@@ -2,6 +2,10 @@
 # Time-Wrap App 📅
 
 Developed an intuitive and visually appealing digital calendar application, inspired by the UI of Google Calendar, using React, React Hooks, React Context, and Tailwind CSS.
+![pro5](https://github.com/Hrithik0112/Digi-Calendar/assets/122002784/094390ed-4b68-4d21-95d9-33140544df15)
+
+![Screenshot 2024-02-01 002018](https://github.com/Hrithik0112/Digi-Calendar/assets/122002784/1d95e442-4a39-4291-bb94-3d833387cae9)
+
 
 ## Features
 
